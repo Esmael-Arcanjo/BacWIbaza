@@ -57,4 +57,3 @@ git add .
 git commit -m "atualizando"
 git push origin main
 
-RESEND_API_KEY="re_Jyys8fgg_K9eitZ5s1kQ4dz56ritxQhwr"
