@@ -78,14 +78,15 @@ async def startup_event():
             {'$set': {'password_hash': hash_password(admin_password)}}
         )
         logger.info('Admin password updated')
- # Usando caminho relativo para a pasta do projeto
-    memory_dir = Path('./memory')
+
+
+    
+ # Usa a variável ROOT_DIR já existente para apontar para a pasta do projeto
+    memory_dir = ROOT_DIR / "memory"
     memory_dir.mkdir(parents=True, exist_ok=True)
     
-    with open(memory_dir / 'test_credentials.md', 'w') as f:
+    with open(memory_dir / "test_credentials.md", "w") as f:
         f.write(f"""# WIBAZA Test Credentials
-
-        
 
 ## Admin Account
 - **Email:** {admin_email}
@@ -101,6 +102,7 @@ async def startup_event():
 - **Payments:** /api/payments
 - **Admin:** /api/admin
 """)
+        
     
     logger.info('WIBAZA API started successfully')
 
