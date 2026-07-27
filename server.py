@@ -78,10 +78,14 @@ async def startup_event():
             {'$set': {'password_hash': hash_password(admin_password)}}
         )
         logger.info('Admin password updated')
+ # Usando caminho relativo para a pasta do projeto
+    memory_dir = Path('./memory')
+    memory_dir.mkdir(parents=True, exist_ok=True)
     
-    Path('/app/memory').mkdir(exist_ok=True)
-    with open('/app/memory/test_credentials.md', 'w') as f:
+    with open(memory_dir / 'test_credentials.md', 'w') as f:
         f.write(f"""# WIBAZA Test Credentials
+
+        
 
 ## Admin Account
 - **Email:** {admin_email}
